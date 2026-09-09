@@ -32,7 +32,7 @@ public class UserDAO {
     
     public ObservableList<User> list(){
         
-        String sql = "select u.*, r.id_role from users u inner join roles r on u.id_role = r.id_role;";
+        String sql = "select u.*, r.role_name from users u inner join roles r on u.id_role = r.id_role;";
         
         try(PreparedStatement pstm = DataBaseConnection.getDBConnection().prepareStatement(sql); ResultSet rs = pstm.executeQuery();){
             
@@ -62,7 +62,7 @@ public class UserDAO {
     
     public boolean saveUser(String userName, String userLastName, String email, String password, Role role){
     
-        String sql = "insert into users values(UUID(), ?, ?, ?, ?, ?)";
+        String sql = "insert into users (id_user, user_name, user_last_name, email, password_hash, id_role) values(UUID(), ?, ?, ?, ?, ?)";
         
         try(PreparedStatement pstm = DataBaseConnection.getDBConnection().prepareStatement(sql);){
             
@@ -81,7 +81,40 @@ public class UserDAO {
         }
     }
     
-    public boolean deleteUserByEmail(){
-        return false;
+    public boolean deleteUserByEmail(String email){
+        
+        String sql = "delete from users where email = ?;";
+        
+        try(PreparedStatement pstm = DataBaseConnection.getDBConnection().prepareStatement(sql)){
+            
+            pstm.setString(1, email);
+            
+            int affectedRow = pstm.executeUpdate();
+            
+            return affectedRow > 0;
+        }catch(SQLException e){
+            throw new RuntimeException("Error en la consulta");
+        }
+    }
+    
+    public boolean updateUserByEmail(String userName, String userLastName, String password, Role role, String email){
+        
+        String sql = "update users set user_name = ?, user_last_name = ?, password_hash = ?, id_role = ? where email = ?";
+        
+        try(PreparedStatement pstm = DataBaseConnection.getDBConnection().prepareStatement(sql)){
+            
+            pstm.setString(1, userName);
+            pstm.setString(2, userLastName);
+            pstm.setString(3, password);
+            pstm.setInt(4, role.getIdRole());
+            pstm.setString(5, email);
+            
+            int affectedRows = pstm.executeUpdate();
+            
+            return affectedRows > 0;
+        }catch(SQLException e){
+            throw new RuntimeException("Error en la consulta");
+        }
+        
     }
 }

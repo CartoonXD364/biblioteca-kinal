@@ -34,4 +34,26 @@ public class RoleDAO {
         
     }
     
+    public String getRoleById(int id){
+        
+        String sql = "select * from roles where id_role = ?;";
+        
+        try(PreparedStatement pstm = DataBaseConnection.getDBConnection().prepareStatement(sql);){
+            
+            pstm.setInt(1, id);
+            ResultSet rs = pstm.executeQuery();
+            
+            if(rs.next()){
+            String rol = rs.getString("role_name");
+            
+            return rol;
+            }
+            
+        }catch(SQLException e){
+            throw new RuntimeException("Error en la consulta");
+        }
+        
+        return null;
+    }
+    
 }

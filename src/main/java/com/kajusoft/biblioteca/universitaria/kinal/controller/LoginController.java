@@ -61,6 +61,8 @@ public class LoginController implements Initializable {
                 // sceneManager.switchScene("/path/to/MainView.fxml");
             } else {
                 sceneManager.showAlertInfo(Alert.AlertType.ERROR, "Login Failed", "Invalid Credentials", "Email or password is incorrect.");
+                txtFieldPassword.clear();
+                txtFieldPassword.requestFocus();
             }
 
         } catch(Exception e) {
