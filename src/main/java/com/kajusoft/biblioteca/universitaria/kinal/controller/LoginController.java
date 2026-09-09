@@ -34,21 +34,21 @@ public class LoginController implements Initializable {
         try {
             // 1. Validar correo vacío
             if (email.isEmpty()) {
-                sceneManager.showAlertInfo(Alert.AlertType.WARNING, "Required Field", "Please enter your email.", "");
+                sceneManager.showAlertInfo(Alert.AlertType.WARNING, "Campo requerido", "Ingrese su Correo.", "");
                 txtFieldEmail.requestFocus();
                 return;
             }
 
             // 2. Validar formato del correo
             if (!email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
-                sceneManager.showAlertInfo(Alert.AlertType.WARNING, "Invalid Email", "Please enter a valid email address.", "");
+                sceneManager.showAlertInfo(Alert.AlertType.WARNING, "Correo invalido", "Ingrese un correo valido.", "");
                 txtFieldEmail.requestFocus();
                 return;
             }
 
             // 3. Validar contraseña vacía
             if (password.isEmpty()) {
-                sceneManager.showAlertInfo(Alert.AlertType.WARNING, "Required Field", "Please enter your password.", "");
+                sceneManager.showAlertInfo(Alert.AlertType.WARNING, "Campo requerido", "Ingrese su contraseña.", "");
                 txtFieldPassword.requestFocus();
                 return;
             }
@@ -57,16 +57,16 @@ public class LoginController implements Initializable {
             boolean isValidUser = userDAO.searchUserByEmail(email, password);
 
             if (isValidUser) {
-                sceneManager.showAlertInfo(Alert.AlertType.INFORMATION, "Welcome", "Access Granted", "Login successful!");
-                // sceneManager.switchScene("/path/to/MainView.fxml");
+                sceneManager.showAlertInfo(Alert.AlertType.INFORMATION, "Bienvenido", "Acceso concedido", "Inicio de sesión exitoso!");
+                sceneManager.showDashboardView();
             } else {
-                sceneManager.showAlertInfo(Alert.AlertType.ERROR, "Login Failed", "Invalid Credentials", "Email or password is incorrect.");
+                sceneManager.showAlertInfo(Alert.AlertType.ERROR, "Inicio de sesión fallido", "Credenciales invalidas", "Correo o contraseñas incorrectos.");
                 txtFieldPassword.clear();
                 txtFieldPassword.requestFocus();
             }
 
         } catch(Exception e) {
-            sceneManager.showAlertInfo(Alert.AlertType.ERROR, "Error", "An unexpected error occurred", e.getMessage());
+            sceneManager.showAlertInfo(Alert.AlertType.ERROR, "Error", "Un error inesperado ocurrido", "");
         }
     }
 
