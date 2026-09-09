@@ -50,6 +50,7 @@ public class SceneManager {
         Alert alert = new Alert(type);
         alert.initOwner(this.stage);
         alert.setTitle(title);
+        alert.setHeaderText(head);
         alert.setContentText(content);
         alert.showAndWait();
     }
