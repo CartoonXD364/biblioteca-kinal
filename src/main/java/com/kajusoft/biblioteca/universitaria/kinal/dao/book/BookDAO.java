@@ -46,18 +46,25 @@ public class BookDAO {
         
     }
     
-    public boolean saveBook(String isbn, String title, Author author, String editorial, int publicationYear, int copiesAvailable){
+    // Método sobrecargado para guardar directamente desde el objeto Book mandando su ID
+    public boolean saveBook(Book book){
+        return saveBook(book.getIdBook(), book.getIsbn(), book.getTitle(), book.getIdAuthor(), book.getEditorial(), book.getPublicationYear(), book.getCopiesAvailable());
+    }
+    
+    // Recibe el idBook explícitamente e inserta la columna id_book en la BD
+    public boolean saveBook(int idBook, String isbn, String title, Author author, String editorial, int publicationYear, int copiesAvailable){
         
-        String sql = "insert into books (isbn, title, id_author, editorial, publication_year, copies_available) values (?, ?, ?, ?, ?, ?);";
+        String sql = "insert into books (id_book, isbn, title, id_author, editorial, publication_year, copies_available) values (?, ?, ?, ?, ?, ?, ?);";
         
         try(PreparedStatement pstm = DataBaseConnection.getDBConnection().prepareStatement(sql);){
             
-            pstm.setString(1, isbn);
-            pstm.setString(2, title);
-            pstm.setInt(3, author.getIdAuthor());
-            pstm.setString(4, editorial);
-            pstm.setInt(5, publicationYear);
-            pstm.setInt(6, copiesAvailable);
+            pstm.setInt(1, idBook);
+            pstm.setString(2, isbn);
+            pstm.setString(3, title);
+            pstm.setInt(4, author.getIdAuthor());
+            pstm.setString(5, editorial);
+            pstm.setInt(6, publicationYear);
+            pstm.setInt(7, copiesAvailable);
             
             int affectedRows = pstm.executeUpdate();
             
@@ -84,7 +91,13 @@ public class BookDAO {
         }
     }
     
-    public boolean updateBookById(String isbn, String title, Author author, String editorial, int publicationYear, int copiesAvailable, int idBook){
+    // Sobrecarga para actualizar recibiendo directamente un objeto Book
+    public boolean updateBookById(Book book){
+        return updateBookById(book.getIdBook(), book.getIsbn(), book.getTitle(), book.getIdAuthor(), book.getEditorial(), book.getPublicationYear(), book.getCopiesAvailable());
+    }
+
+    // Actualizar pasando el idBook al inicio como parámetro principal
+    public boolean updateBookById(int idBook, String isbn, String title, Author author, String editorial, int publicationYear, int copiesAvailable){
         
         String sql = "update books set isbn = ?, title = ?, id_author = ?, editorial = ?, publication_year = ?, copies_available = ? where id_book = ?;";
         
