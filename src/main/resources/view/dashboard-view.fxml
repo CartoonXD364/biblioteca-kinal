@@ -33,31 +33,31 @@
             </TableView>
          </center>
          <left>
-            <VBox prefHeight="542.0" prefWidth="204.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="542.0" prefWidth="204.0" styleClass="side-panel" BorderPane.alignment="CENTER">
                <children>
                   <Pane prefHeight="548.0" prefWidth="204.0">
                      <children>
                         <Label fx:id="lblIdBook" layoutX="14.0" layoutY="10.0" text="ID Libro" />
                         <TextField fx:id="txtIdBook" layoutX="14.0" layoutY="27.0" prefWidth="150.0" />
-                        
+
                         <Label fx:id="lblIsbn" layoutX="14.0" layoutY="60.0" text="ISBN" />
                         <TextField fx:id="txtIsbn" layoutX="14.0" layoutY="77.0" prefWidth="150.0" />
-                        
+
                         <Label fx:id="lblTitle" layoutX="14.0" layoutY="110.0" text="Título" />
                         <TextField fx:id="txtTitle" layoutX="14.0" layoutY="127.0" prefWidth="150.0" />
-                        
+
                         <Label fx:id="lblAuthor" layoutX="14.0" layoutY="160.0" text="Autor" />
                         <ComboBox fx:id="cmbAuthor" layoutX="14.0" layoutY="177.0" prefWidth="150.0" />
-                        
+
                         <Label fx:id="lblEditorial" layoutX="14.0" layoutY="210.0" text="Editorial" />
                         <TextField fx:id="txtEditorial" layoutX="14.0" layoutY="227.0" prefWidth="150.0" />
-                        
+
                         <Label fx:id="lblPublicationYear" layoutX="14.0" layoutY="260.0" text="Año de publicación" />
                         <TextField fx:id="txtPublicationYear" layoutX="14.0" layoutY="277.0" prefWidth="150.0" />
-                        
+
                         <Label fx:id="lblCopiesAvailable" layoutX="14.0" layoutY="310.0" text="Copias Disponibles" />
                         <TextField fx:id="txtCopiesAvailable" layoutX="14.0" layoutY="327.0" prefWidth="150.0" />
-                        
+
                         <Button fx:id="btnExecuteAction" layoutX="35.0" layoutY="380.0" mnemonicParsing="false" onAction="#handleExecuteAction" prefWidth="110.0" text="Ejecutar" />
                      </children>
                   </Pane>
@@ -65,11 +65,11 @@
             </VBox>
          </left>
          <top>
-            <HBox prefHeight="60.0" prefWidth="926.0" BorderPane.alignment="CENTER">
+            <HBox prefHeight="60.0" prefWidth="926.0" styleClass="header-panel" BorderPane.alignment="CENTER">
                <children>
                   <Pane prefHeight="60.0" prefWidth="926.0">
                      <children>
-                        <Label layoutX="20.0" layoutY="20.0" text="Administración de libros" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+                        <Label layoutX="20.0" layoutY="18.0" text="Catálogo Bibliográfico Digital" styleClass="header-title" />
                         <Label layoutX="600.0" layoutY="20.0" text="Acción:" />
                         <ComboBox fx:id="cmbAction" layoutX="650.0" layoutY="16.0" prefWidth="150.0" />
                      </children>

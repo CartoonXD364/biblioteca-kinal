@@ -1,7 +1,71 @@
-/*
- * Empty Stylesheet file.
- */
+/* src/main/resources/css/register-view.css */
+/* Reutiliza la identidad visual del login para mantener consistencia de marca. */
 
 .mainFxmlClass {
+    -fx-background-color: #F5F1E8;
+}
 
+.mainFxmlClass .label {
+    -fx-text-fill: #1B3A57;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 13px;
+}
+
+.title-label {
+    -fx-font-family: "Georgia", "Times New Roman", serif;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1B3A57;
+}
+
+.mainFxmlClass .text-field,
+.mainFxmlClass .password-field,
+.mainFxmlClass .combo-box {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #C9C2AE;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 13px;
+    -fx-padding: 6px 8px;
+    -fx-text-fill: #333333;
+}
+
+.mainFxmlClass .text-field:focused,
+.mainFxmlClass .password-field:focused,
+.mainFxmlClass .combo-box:focused {
+    -fx-border-color: #2C5F7C;
+    -fx-border-width: 2px;
+}
+
+.mainFxmlClass .button {
+    -fx-background-color: #1B3A57;
+    -fx-text-fill: #F5F1E8;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 4px;
+    -fx-padding: 8px 20px;
+    -fx-cursor: hand;
+}
+
+.mainFxmlClass .button:hover {
+    -fx-background-color: #2C5F7C;
+}
+
+.mainFxmlClass .button:pressed {
+    -fx-background-color: #143046;
+}
+
+.secondary-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #2C5F7C;
+    -fx-font-weight: normal;
+    -fx-border-color: transparent;
+}
+
+.secondary-button:hover {
+    -fx-text-fill: #C9A25D;
+    -fx-underline: true;
 }
