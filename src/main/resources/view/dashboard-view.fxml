@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="647.0" prefWidth="926.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.kajusoft.biblioteca.universitaria.kinal.controller.DashboardController">
+    <stylesheets>
+        <URL value="@/main/resources/css/dashboard-view.css" />
+    </stylesheets>
+   <children>
+      <BorderPane layoutX="-5.0" layoutY="-5.0" prefHeight="654.0" prefWidth="933.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <TableView fx:id="tableBook" prefHeight="511.0" prefWidth="703.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="idBookColumn" prefWidth="40.0" text="ID" />
+                <TableColumn fx:id="isbnColumn" prefWidth="120.0" text="ISBN" />
+                <TableColumn fx:id="titleColumn" prefWidth="150.0" text="Título" />
+                <TableColumn fx:id="authorColumn" prefWidth="140.0" text="Autor" />
+                <TableColumn fx:id="editorialColumn" prefWidth="120.0" text="Editorial" />
+                <TableColumn fx:id="publicationYearColumn" prefWidth="100.0" text="Año Publicación" />
+                <TableColumn fx:id="copiesAvailableColumn" prefWidth="70.0" text="Copias" />
+              </columns>
+            </TableView>
+         </center>
+         <left>
+            <VBox prefHeight="542.0" prefWidth="204.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefHeight="548.0" prefWidth="204.0">
+                     <children>
+                        <Label fx:id="lblIdBook" layoutX="14.0" layoutY="10.0" text="ID Libro" />
+                        <TextField fx:id="txtIdBook" layoutX="14.0" layoutY="27.0" prefWidth="150.0" />
+                        
+                        <Label fx:id="lblIsbn" layoutX="14.0" layoutY="60.0" text="ISBN" />
+                        <TextField fx:id="txtIsbn" layoutX="14.0" layoutY="77.0" prefWidth="150.0" />
+                        
+                        <Label fx:id="lblTitle" layoutX="14.0" layoutY="110.0" text="Título" />
+                        <TextField fx:id="txtTitle" layoutX="14.0" layoutY="127.0" prefWidth="150.0" />
+                        
+                        <Label fx:id="lblAuthor" layoutX="14.0" layoutY="160.0" text="Autor" />
+                        <ComboBox fx:id="cmbAuthor" layoutX="14.0" layoutY="177.0" prefWidth="150.0" />
+                        
+                        <Label fx:id="lblEditorial" layoutX="14.0" layoutY="210.0" text="Editorial" />
+                        <TextField fx:id="txtEditorial" layoutX="14.0" layoutY="227.0" prefWidth="150.0" />
+                        
+                        <Label fx:id="lblPublicationYear" layoutX="14.0" layoutY="260.0" text="Año de publicación" />
+                        <TextField fx:id="txtPublicationYear" layoutX="14.0" layoutY="277.0" prefWidth="150.0" />
+                        
+                        <Label fx:id="lblCopiesAvailable" layoutX="14.0" layoutY="310.0" text="Copias Disponibles" />
+                        <TextField fx:id="txtCopiesAvailable" layoutX="14.0" layoutY="327.0" prefWidth="150.0" />
+                        
+                        <Button fx:id="btnExecuteAction" layoutX="35.0" layoutY="380.0" mnemonicParsing="false" onAction="#handleExecuteAction" prefWidth="110.0" text="Ejecutar" />
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+         </left>
+         <top>
+            <HBox prefHeight="60.0" prefWidth="926.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefHeight="60.0" prefWidth="926.0">
+                     <children>
+                        <Label layoutX="20.0" layoutY="20.0" text="Administración de libros" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+                        <Label layoutX="600.0" layoutY="20.0" text="Acción:" />
+                        <ComboBox fx:id="cmbAction" layoutX="650.0" layoutY="16.0" prefWidth="150.0" />
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
