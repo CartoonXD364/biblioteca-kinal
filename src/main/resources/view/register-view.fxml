@@ -16,7 +16,7 @@
     <children>
         <Pane prefHeight="650.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Label layoutX="145.0" layoutY="40.0" text="Registro de Usuario" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+                <Label layoutX="145.0" layoutY="40.0" text="Registro de Usuario" styleClass="title-label" />
 
                 <Label layoutX="145.0" layoutY="100.0" text="Nombre" />
                 <TextField fx:id="txtFieldName" layoutX="145.0" layoutY="117.0" prefHeight="25.0" prefWidth="310.0" />
@@ -34,7 +34,7 @@
                 <ComboBox fx:id="cmbRole" layoutX="145.0" layoutY="317.0" prefHeight="25.0" prefWidth="310.0" />
 
                 <Button layoutX="220.0" layoutY="370.0" mnemonicParsing="false" onAction="#handleRegister" prefWidth="160.0" text="Registrar" />
-                <Button layoutX="220.0" layoutY="410.0" mnemonicParsing="false" onAction="#handleGoToLogin" prefWidth="160.0" text="Volver a inicio de sesión" style="-fx-font-size: 11px;" />
+                <Button layoutX="200.0" layoutY="410.0" mnemonicParsing="false" onAction="#handleGoToLogin" prefWidth="200.0" text="Volver a inicio de sesión" styleClass="secondary-button" />
             </children>
         </Pane>
     </children>

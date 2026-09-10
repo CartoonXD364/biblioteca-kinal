@@ -1,3 +1,101 @@
-.mainFxmlClass {
+/* src/main/resources/css/dashboard-view.css */
+/* Misma paleta institucional (azules/dorado/crema) aplicada al panel administrativo. */
 
+.mainFxmlClass {
+    -fx-background-color: #F5F1E8;
+}
+
+.mainFxmlClass .label {
+    -fx-text-fill: #1B3A57;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 12px;
+}
+
+.header-panel {
+    -fx-background-color: #1B3A57;
+}
+
+.header-title {
+    -fx-font-family: "Georgia", "Times New Roman", serif;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #F5F1E8;
+}
+
+.header-panel .label {
+    -fx-text-fill: #F5F1E8;
+}
+
+.mainFxmlClass .text-field,
+.mainFxmlClass .combo-box {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #C9C2AE;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 12px;
+}
+
+.mainFxmlClass .text-field:focused,
+.mainFxmlClass .combo-box:focused {
+    -fx-border-color: #2C5F7C;
+    -fx-border-width: 2px;
+}
+
+.side-panel {
+    -fx-background-color: #EDE7D9;
+    -fx-border-color: #C9C2AE;
+    -fx-border-width: 0 1px 0 0;
+}
+
+.mainFxmlClass .button {
+    -fx-background-color: #1B3A57;
+    -fx-text-fill: #F5F1E8;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 4px;
+    -fx-padding: 7px 16px;
+    -fx-cursor: hand;
+}
+
+.mainFxmlClass .button:hover {
+    -fx-background-color: #2C5F7C;
+}
+
+.mainFxmlClass .button:pressed {
+    -fx-background-color: #143046;
+}
+
+/* TableView: filas alternadas suaves para lectura rápida (rubro: catálogo bibliográfico) */
+.mainFxmlClass .table-view {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #C9C2AE;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 12px;
+}
+
+.mainFxmlClass .table-view .column-header-background {
+    -fx-background-color: #2C5F7C;
+    -fx-background-radius: 0;
+}
+
+.mainFxmlClass .table-view .column-header .label {
+    -fx-text-fill: #F5F1E8;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER-LEFT;
+}
+
+.mainFxmlClass .table-row-cell {
+    -fx-background-color: #FFFFFF;
+}
+
+.mainFxmlClass .table-row-cell:odd {
+    -fx-background-color: #F5F1E8;
+}
+
+.mainFxmlClass .table-row-cell:selected {
+    -fx-background-color: #C9A25D;
+    -fx-text-fill: #1B3A57;
 }
