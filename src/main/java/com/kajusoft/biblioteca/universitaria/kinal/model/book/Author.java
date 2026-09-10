@@ -36,5 +36,10 @@ public class Author {
         this.authorLastName = authorLastName;
     }
     
+    @Override
+    public String toString() {
+        return authorName + " " + authorLastName;
+    }
+    
 }
 
