@@ -70,7 +70,7 @@ public class SceneManager {
         });
         
         Parent root = loader.load();
-        Scene scene = new Scene(root, 600, 600);
+        Scene scene = new Scene(root, 925, 600);
         stage.setMinHeight(500);
         stage.setMinWidth(500);
         stage.setScene(scene);  
