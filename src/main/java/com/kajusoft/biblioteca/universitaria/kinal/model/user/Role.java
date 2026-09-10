@@ -26,4 +26,9 @@ public class Role {
         this.roleName = roleName;
     }
     
+    @Override
+    public String toString(){
+        
+        return roleName;
+    }
 }

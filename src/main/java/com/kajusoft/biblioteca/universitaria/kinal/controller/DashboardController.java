@@ -22,16 +22,16 @@ import main.java.com.kajusoft.biblioteca.universitaria.kinal.model.book.Book;
 import main.java.com.kajusoft.biblioteca.universitaria.kinal.util.SceneManager;
 
 public class DashboardController implements Initializable {
-    
+
     private BookDAO bookDAO;
     private AuthorDAO authorDAO;
-    private SceneManager sceneManager;  
-    
+    private SceneManager sceneManager;
+
     @FXML
     private ComboBox<String> cmbAction;
     @FXML
     private Button btnExecuteAction;
-    
+
     @FXML
     private Label lblIdBook;
     @FXML
@@ -60,7 +60,7 @@ public class DashboardController implements Initializable {
     private Label lblCopiesAvailable;
     @FXML
     private TextField txtCopiesAvailable;
-    
+
     @FXML
     private TableView<Book> tableBook;
     @FXML
@@ -75,22 +75,22 @@ public class DashboardController implements Initializable {
     private TableColumn<Book, String> editorialColumn;
     @FXML
     private TableColumn<Book, Integer> publicationYearColumn;
-    @FXML 
+    @FXML
     private TableColumn<Book, Integer> copiesAvailableColumn;
-    
+
     public DashboardController(BookDAO bookDAO, AuthorDAO authorDAO, SceneManager sceneManager) {
         this.bookDAO = bookDAO;
         this.authorDAO = authorDAO;
         this.sceneManager = sceneManager;
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // 1. Configurar ComboBox de acciones
         cmbAction.setItems(FXCollections.observableArrayList("Crear", "Actualizar", "Eliminar"));
-        cmbAction.setValue("Actualizar"); 
+        cmbAction.setValue("Actualizar");
 
-        // 2. Listener para alternar el formulario según acción
+        // 2. Listener para alternar el formulario según la acción
         cmbAction.valueProperty().addListener((obs, oldVal, newVal) -> {
             if (newVal != null) {
                 configureFormView(newVal);
@@ -114,12 +114,12 @@ public class DashboardController implements Initializable {
         editorialColumn.setCellValueFactory(new PropertyValueFactory<>("editorial"));
         publicationYearColumn.setCellValueFactory(new PropertyValueFactory<>("publicationYear"));
         copiesAvailableColumn.setCellValueFactory(new PropertyValueFactory<>("copiesAvailable"));
-        
+
         if (bookDAO != null) {
             tableBook.setItems(bookDAO.list());
         }
     }
-    
+
     private void handleSelectBook() {
         tableBook.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, selectedBook) -> {
             if (selectedBook != null) {
@@ -129,7 +129,7 @@ public class DashboardController implements Initializable {
                 txtEditorial.setText(selectedBook.getEditorial());
                 txtPublicationYear.setText(String.valueOf(selectedBook.getPublicationYear()));
                 txtCopiesAvailable.setText(String.valueOf(selectedBook.getCopiesAvailable()));
-                
+
                 if (cmbAuthor != null && selectedBook.getIdAuthor() != null) {
                     cmbAuthor.setValue(selectedBook.getIdAuthor());
                 }
@@ -175,7 +175,7 @@ public class DashboardController implements Initializable {
             int publicationYear = Integer.parseInt(yearText);
             int copiesAvailable = Integer.parseInt(copiesText);
 
-            // Guardado utilizando asignación manual del ID
+            // Guardado utilizando el ID ingresado manualmente
             boolean isSaved = bookDAO.saveBook(idBook, isbn, title, selectedAuthor, editorial, publicationYear, copiesAvailable);
 
             if (isSaved) {
@@ -290,6 +290,8 @@ public class DashboardController implements Initializable {
                 setFormFieldsVisible(false);
                 btnExecuteAction.setText("Eliminar");
                 break;
+            default:
+                break;
         }
     }
 
@@ -298,16 +300,16 @@ public class DashboardController implements Initializable {
         txtIdBook.setVisible(visible);            txtIdBook.setManaged(visible);
         lblIsbn.setVisible(visible);              lblIsbn.setManaged(visible);
         txtIsbn.setVisible(visible);              txtIsbn.setManaged(visible);
-        lblTitle.setVisible(visible);             lblTitle.setManaged(visible);
-        txtTitle.setVisible(visible);             txtTitle.setManaged(visible);
-        lblAuthor.setVisible(visible);            lblAuthor.setManaged(visible);
-        cmbAuthor.setVisible(visible);            cmbAuthor.setManaged(visible);
-        lblEditorial.setVisible(visible);         lblEditorial.setManaged(visible);
-        txtEditorial.setVisible(visible);         txtEditorial.setManaged(visible);
-        lblPublicationYear.setVisible(visible);   lblPublicationYear.setManaged(visible);
-        txtPublicationYear.setVisible(visible);   txtPublicationYear.setManaged(visible);
-        lblCopiesAvailable.setVisible(visible);   lblCopiesAvailable.setManaged(visible);
-        txtCopiesAvailable.setVisible(visible);   txtCopiesAvailable.setManaged(visible);
+        lblTitle.setVisible(visible);             txtTitle.setManaged(visible);
+        lblAuthor.setVisible(visible);            cmbAuthor.setManaged(visible);
+        lblEditorial.setVisible(visible);         txtEditorial.setManaged(visible);
+        lblPublicationYear.setVisible(visible);   txtPublicationYear.setManaged(visible);
+        lblCopiesAvailable.setVisible(visible);   txtCopiesAvailable.setManaged(visible);
+        txtTitle.setVisible(visible);
+        cmbAuthor.setVisible(visible);
+        txtEditorial.setVisible(visible);
+        txtPublicationYear.setVisible(visible);
+        txtCopiesAvailable.setVisible(visible);
     }
 
     private void clearFormFields() {

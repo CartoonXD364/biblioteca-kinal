@@ -34,10 +34,18 @@
                   <TextField fx:id="txtFieldEmail" layoutX="134.0" layoutY="240.0" prefHeight="25.0" prefWidth="310.0" />
                   <PasswordField fx:id="txtFieldPassword" layoutX="134.0" layoutY="295.0" prefHeight="25.0" prefWidth="310.0" />
                   <Button layoutX="183.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleLogin" text="Iniciar Sesión" />
+<<<<<<< HEAD
+                  <Button layoutX="163.0" layoutY="383.0" mnemonicParsing="false" onAction="#handleGoToRegister" text="Crear cuenta" style="-fx-font-size: 11px;" />
+=======
+>>>>>>> bf7d03c5c84a5b7ec2670f0e6918464cd62b2500
                   <ImageView fitHeight="132.0" fitWidth="194.0" layoutX="183.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </Pane>
          </children>
       </GridPane>
    </children>
+<<<<<<< HEAD
 </AnchorPane>
+=======
+</AnchorPane>
+>>>>>>> bf7d03c5c84a5b7ec2670f0e6918464cd62b2500
