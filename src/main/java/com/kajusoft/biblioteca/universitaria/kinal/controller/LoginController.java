@@ -26,7 +26,6 @@ public class LoginController implements Initializable {
         this.userDAO = userDAO;
         this.sceneManager = sceneManager;
     }
-
     @FXML
     private void handleLogin() {
 

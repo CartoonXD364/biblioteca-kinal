@@ -27,7 +27,6 @@ public class BookDAO {
                         rs.getString("author_name"),
                         rs.getString("author_last_name")
                 );
-
                 list.add(new Book(
                         rs.getInt("id_book"),
                         rs.getString("isbn"),
